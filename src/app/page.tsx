@@ -9,7 +9,7 @@ export default function Home() {
       <div className="flex flex-col flex-1 items-center justify-center">
         {/* <Hero /> */}
         <p>drag and drop component</p>
-        <p>select components...</p>
+        <p className="animate-fade-in-up">Datos relevantes para una mejor precisión en su corte.</p>
       </div>
       <Footer />
     </div>

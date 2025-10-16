@@ -21,8 +21,7 @@ function Navbar() {
 
     return (
         <>
-
-            <nav className=" text-white py-4">
+            <nav className=" text-white py-4 animate-blurred-fade-in">
                 <div className="flex items-center justify-center gap-4">
                     <h1 className="text-2xl font-bold text-orange-app" title="CutMatch | El corte que encaja contigo.">CutMatch</h1>
                     <span>*</span>
@@ -34,7 +33,7 @@ function Navbar() {
                                 <SettingsIcon className="size-5" />
                             </SelectTrigger>
                             <SelectTrigger className="hidden sm:flex w-auto border-orange-app">
-                                <SelectValue placeholder={language} className="hidden" />
+                                <SelectValue placeholder={language ? language : "ES"} className="hidden" />
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="ES">ES</SelectItem>
