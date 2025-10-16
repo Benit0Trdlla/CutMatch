@@ -4,9 +4,21 @@ import { SettingsIcon, CircleHelpIcon } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { HelpDialog } from "./help-dialog";
 import { Button } from "./ui/button";
+import { getLanguage, setLanguage } from "@/lib/language"
+import { useRouter } from 'next/navigation'
+import { useHidratationSolution } from "@/hooks/useHidratationSolution";
 
 function Navbar() {
     const [isHelpOpen, setIsHelpOpen] = useState(false)
+    const router = useRouter()
+    const isClient = useHidratationSolution()
+    const language = isClient && getLanguage()
+
+    const setLanguageToggle = (lang: string) => {
+        setLanguage(lang);
+        router.refresh()
+    }
+
     return (
         <>
 
@@ -17,12 +29,12 @@ function Navbar() {
                     <p className="sm:block hidden mb-0">El corte que encaja contigo.</p>
                     <span className="sm:block hidden">|</span>
                     <div className="flex items-center gap-2">
-                        <Select>
+                        <Select onValueChange={(e) => setLanguageToggle(e)}>
                             <SelectTrigger className="flex sm:hidden w-auto border-orange-app">
                                 <SettingsIcon className="size-5" />
                             </SelectTrigger>
                             <SelectTrigger className="hidden sm:flex w-auto border-orange-app">
-                                <SelectValue placeholder={'ES'} className="hidden" />
+                                <SelectValue placeholder={language} className="hidden" />
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="ES">ES</SelectItem>
