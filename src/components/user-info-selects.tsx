@@ -3,12 +3,14 @@
 import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "./ui/input"
+import { toast } from "sonner"
 
 export function UserInfoSelects() {
     const [gender, setGender] = useState("Hombre")
     const [age, setAge] = useState('0')
-    if (age > '100') {
-        alert('La edad no puede ser mayor a 100')
+    console.log('age', typeof age)
+    if (parseInt(age) >= 100) {
+        toast.error('La edad no puede ser mayor a 100')
     }
 
     return (
