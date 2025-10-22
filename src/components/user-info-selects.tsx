@@ -42,7 +42,7 @@ export function UserInfoSelects() {
                         ))}
                     </SelectContent>
                 </Select> */}
-                <Input type="number" className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10" max="100" value={age} onChange={(e) => setAge(e.target.value)} />
+                <Input type="number" inputMode="numeric" className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10" max="100" value={age} onChange={(e) => setAge(e.target.value)} />
             </div>
         </div>
     )
