@@ -14,7 +14,7 @@ export function UserInfoSelects() {
     }
 
     return (
-        <div className="animate-slide-in-bottom flex items-center justify-center gap-8">
+        <div className="mt-8 animate-slide-in-bottom flex items-center justify-center gap-8">
             <div className="flex items-center gap-3">
                 <label className="text-white font-medium">Genero</label>
                 <Select value={gender} onValueChange={setGender}>

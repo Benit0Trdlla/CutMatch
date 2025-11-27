@@ -9,11 +9,11 @@ const DragAndDrop = () => {
     };
     return (
         <Dropzone
-            className='border-orange-app bg-transparent border-2 border-dashed text-orange-app hover:bg-[#FF8C42]/10 hover:text-white w-full max-w-[calc(100%-2rem)]'
+            className='border-orange-app bg-transparent border-2 border-dashed text-orange-app hover:bg-[#FF8C42]/10 hover:text-white '
             accept={{ 'image/*': [] }}
             maxFiles={3}
-            maxSize={768 * 1024}
-            minSize={768}
+            maxSize={1024 * 1024 * 10}
+            minSize={1024}
             onDrop={handleDrop}
             onError={console.error}
             src={files}

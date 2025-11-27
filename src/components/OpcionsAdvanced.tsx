@@ -6,7 +6,7 @@ function OpciosnAdvanced() {
     const [isClicked, setIsClicked] = useState(false)
     return (
         <>
-            <div onClick={() => setIsClicked(true)} className={`${isClicked ? 'animate-slide-out-top hidden' : 'flex items-center gap-2 justify-center hover:underline hover:text-orange-app hover:translate-1 hover:duration-300'}`}>
+            <div onClick={() => setIsClicked(true)} className={`${isClicked ? 'animate-slide-out-top hidden' : 'mt-8 flex items-center gap-2 justify-center hover:underline hover:text-orange-app hover:translate-1 hover:duration-300'}`}>
                 <p className="font-bold text-xl">
                     Opciones Advanzadas
                 </p>
