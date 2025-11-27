@@ -22,7 +22,7 @@ export function UserInfoSelects() {
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="Hombre">Hombre</SelectItem>
+                        <SelectItem value="Hombre">Masculino</SelectItem>
                         <SelectItem value="Femenino">Femenino</SelectItem>
                     </SelectContent>
                 </Select>
