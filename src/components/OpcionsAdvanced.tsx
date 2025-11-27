@@ -2,7 +2,7 @@
 import { useState } from "react"
 import { CornerRightDownIcon } from 'lucide-react'
 import { UserInfoSelects } from "./user-info-selects"
-function OpciosnAdvanced() {
+function OpcionsAdvanced() {
     const [isClicked, setIsClicked] = useState(false)
     return (
         <>
@@ -18,4 +18,4 @@ function OpciosnAdvanced() {
     )
 }
 
-export default OpciosnAdvanced
+export default OpcionsAdvanced

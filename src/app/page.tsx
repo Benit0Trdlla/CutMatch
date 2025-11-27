@@ -1,6 +1,6 @@
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
-import OpciosnAdvanced from "@/components/OpcionsAdvanced";
+import OpcionsAdvanced from "@/components/OpcionsAdvanced";
 import DragAndDrop from "@/components/drag-and-drop";
 
 export default function Home() {
@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
       <div className="flex flex-col flex-1 items-center justify-center">
         <DragAndDrop />
-        <OpciosnAdvanced />
+        <OpcionsAdvanced />
       </div>
       <Footer />
     </div>
