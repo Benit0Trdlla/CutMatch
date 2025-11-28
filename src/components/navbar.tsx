@@ -4,15 +4,14 @@ import { SettingsIcon, CircleHelpIcon } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { HelpDialog } from "./help-dialog";
 import { Button } from "./ui/button";
-import { getLanguage, setLanguage } from "@/lib/language"
+import { setLanguage } from "@/lib/language"
 import { useRouter } from 'next/navigation'
-import { useHidratationSolution } from "@/hooks/useHidratationSolution";
+import { useTranslation } from "@/hooks/useTranslation";
 
 function Navbar() {
     const [isHelpOpen, setIsHelpOpen] = useState(false)
     const router = useRouter()
-    const isClient = useHidratationSolution()
-    const language = isClient && getLanguage()
+    const { t, lang } = useTranslation()
 
     const setLanguageToggle = (lang: string) => {
         setLanguage(lang);
@@ -25,7 +24,7 @@ function Navbar() {
                 <div className="flex items-center justify-center gap-4">
                     <h1 className="text-2xl font-bold text-orange-app" title="CutMatch | El corte que encaja contigo.">CutMatch</h1>
                     <span>*</span>
-                    <p className="sm:block hidden mb-0">El corte que encaja contigo.</p>
+                    <p className="sm:block hidden mb-0">{t.HEADER.HEADER_SUBTITLE}</p>
                     <span className="sm:block hidden">|</span>
                     <div className="flex items-center gap-2">
                         <Select onValueChange={(e) => setLanguageToggle(e)}>
@@ -33,7 +32,7 @@ function Navbar() {
                                 <SettingsIcon className="size-5" />
                             </SelectTrigger>
                             <SelectTrigger className="hidden sm:flex w-auto border-orange-app">
-                                <SelectValue placeholder={language ? language : "ES"} className="hidden" />
+                                <SelectValue placeholder={lang} className="hidden" />
                             </SelectTrigger>
                             <SelectContent>
                                 <SelectItem value="ES">ES</SelectItem>

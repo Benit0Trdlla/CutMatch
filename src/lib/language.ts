@@ -5,7 +5,7 @@ export const setLanguage = (lang : string) => {
 export const getLanguage = () => {
     let language
     if (typeof window !== 'undefined' && typeof window.localStorage !== 'undefined') {
-        return language = localStorage.getItem('language');
+        return language = localStorage.getItem('language') as string;
     }
     return language = 'ES'
 }
