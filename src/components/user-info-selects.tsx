@@ -4,13 +4,20 @@ import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "./ui/input"
 import { toast } from "sonner"
+import { useTranslation } from "@/hooks/useTranslation"
+
+type UserInfoSelects = {
+    Gender: string
+    Age: string
+}
 
 export function UserInfoSelects() {
-    const [gender, setGender] = useState("Hombre")
-    const [age, setAge] = useState('0')
+    const [gender, setGender] = useState<UserInfoSelects["Gender"]>("Hombre")
+    const [age, setAge] = useState<UserInfoSelects["Age"]>("0")
     const { t } = useTranslation()
-    console.log('age', typeof age)
-    if (parseInt(age) >= 100) {
+    console.log(typeof age, { gender, age });
+
+    if (age > '100') {
         toast.error('La edad no puede ser mayor a 100')
     }
 
@@ -34,19 +41,7 @@ export function UserInfoSelects() {
 
             <div className="flex items-center gap-3">
                 <label className="text-white font-medium">{t.ADVANCED_OPTIONS.INPUT_AGE}</label>
-                {/* <Select value={age} onValueChange={setAge}>
-                    <SelectTrigger className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10">
-                        <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                        {Array.from({ length: 83 }, (_, i) => i + 18).map((ageValue) => (
-                            <SelectItem key={ageValue} value={String(ageValue)}>
-                                {ageValue}
-                            </SelectItem>
-                        ))}
-                    </SelectContent>
-                </Select> */}
-                <Input type="number" inputMode="numeric" className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10" max="100" value={age} onChange={(e) => setAge(e.target.value)} />
+                <Input type="text" inputMode="numeric" className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10" max="100" value={age} onChange={(e) => setAge(e.target.value)} />
             </div>
         </div>
     )
