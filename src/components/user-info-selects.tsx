@@ -8,6 +8,7 @@ import { toast } from "sonner"
 export function UserInfoSelects() {
     const [gender, setGender] = useState("Hombre")
     const [age, setAge] = useState('0')
+    const { t } = useTranslation()
     console.log('age', typeof age)
     if (parseInt(age) >= 100) {
         toast.error('La edad no puede ser mayor a 100')
@@ -16,20 +17,23 @@ export function UserInfoSelects() {
     return (
         <div className="mt-8 animate-slide-in-bottom flex items-center justify-center gap-8">
             <div className="flex items-center gap-3">
-                <label className="text-white font-medium">Genero</label>
+                <label className="text-white font-medium">{t.ADVANCED_OPTIONS.INPUT_GENRE.LABEL}</label>
                 <Select value={gender} onValueChange={setGender}>
                     <SelectTrigger className="w-32 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10">
                         <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="Hombre">Masculino</SelectItem>
-                        <SelectItem value="Femenino">Femenino</SelectItem>
+                        {t.ADVANCED_OPTIONS.INPUT_GENRE.PLACEHOLDER.map((genre) => (
+                            <SelectItem key={genre} value={genre}>
+                                {genre}
+                            </SelectItem>
+                        ))}
                     </SelectContent>
                 </Select>
             </div>
 
             <div className="flex items-center gap-3">
-                <label className="text-white font-medium">Edad</label>
+                <label className="text-white font-medium">{t.ADVANCED_OPTIONS.INPUT_AGE}</label>
                 {/* <Select value={age} onValueChange={setAge}>
                     <SelectTrigger className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10">
                         <SelectValue />
