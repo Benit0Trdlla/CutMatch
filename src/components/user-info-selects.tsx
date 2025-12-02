@@ -1,20 +1,25 @@
 "use client"
-
 import { useState } from "react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Input } from "./ui/input"
 import { toast } from "sonner"
 import { useTranslation } from "@/hooks/useTranslation"
+import { CornerRightUpIcon } from 'lucide-react'
 
 type UserInfoSelects = {
     Gender: string
     Age: string
 }
 
-export function UserInfoSelects() {
+type UserInfoSelectsProps = {
+    setIsClicked: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export function UserInfoSelects({ setIsClicked }: UserInfoSelectsProps) {
     const [gender, setGender] = useState<UserInfoSelects["Gender"]>("Hombre")
     const [age, setAge] = useState<UserInfoSelects["Age"]>("0")
     const { t } = useTranslation()
+
     console.log(typeof age, { gender, age });
 
     if (age > '100') {
@@ -43,6 +48,9 @@ export function UserInfoSelects() {
                 <label className="text-white font-medium">{t.ADVANCED_OPTIONS.INPUT_AGE}</label>
                 <Input type="text" inputMode="numeric" className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10" max="100" value={age} onChange={(e) => setAge(e.target.value)} />
             </div>
+            <button onClick={() => { setIsClicked(prev => !prev) }}>
+                <CornerRightUpIcon size={16} />
+            </button>
         </div>
     )
 }
