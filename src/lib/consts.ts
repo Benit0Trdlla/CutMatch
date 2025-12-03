@@ -33,6 +33,7 @@ export const LANGUAGES = {
                 PLACEHOLDER: ['Male', 'Female'],
             },
             INPUT_AGE: 'Age',
+            BACK: 'Go back',
         },
         FOOTER: {
             TEXT: 'Made by',
@@ -72,6 +73,7 @@ export const LANGUAGES = {
                 PLACEHOLDER: ['Hombre', 'Mujer'],
             },
             INPUT_AGE: 'Edad',
+            BACK: 'Volver',
         },
         FOOTER: {
             TEXT: 'Hecho por',

@@ -14,8 +14,8 @@ function OpcionsAdvanced() {
                 </p>
                 <CornerRightDownIcon size={16} />
             </div>
+            
             {isClicked && <UserInfoSelects setIsClicked={setIsClicked}/>}
-
         </>
     )
 }
