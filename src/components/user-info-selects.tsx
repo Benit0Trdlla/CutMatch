@@ -17,14 +17,22 @@ type UserInfoSelectsProps = {
 
 export function UserInfoSelects({ setIsClicked }: UserInfoSelectsProps) {
     const [gender, setGender] = useState<UserInfoSelects["Gender"]>("Hombre")
-    const [age, setAge] = useState<UserInfoSelects["Age"]>("0")
+    const [age, setAge] = useState<UserInfoSelects["Age"]>("")
     const { t } = useTranslation()
 
-    // console.log({ gender, age });
+    const handleAgeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
 
-    if (age > '100') {
-        toast.error('La edad no puede ser mayor a 100')
-    }
+        if (!/^\d*$/.test(value)) return;
+
+        if (value.length > 1 && value.startsWith('0')) return toast.error('No se permiten ceros a la izquierda');
+
+        if (Number(value) > 100) return toast.error('La edad no puede ser mayor a 100');
+
+        if (value === '0' && value.length === 1) toast.error('La edad mínima es 1 año.');
+
+        setAge(value);
+    };
 
     return (
         <>
@@ -45,10 +53,14 @@ export function UserInfoSelects({ setIsClicked }: UserInfoSelectsProps) {
                     </Select>
                 </div>
 
+                <div className="flex items-center gap-1">
+                    <label className="text-white font-medium">{t.ADVANCED_OPTIONS.INPUT_AGE}</label>
+                    <Input type="text" inputMode="numeric" className="w-24 bg-transparent border-2 border-[#FF8C42] text-white rounded-full hover:bg-[#FF8C42]/10" value={age} onChange={handleAgeChange} />
+                </div>
             </div>
-                <button className="mt-4 mx-auto flex items-center justify-center gap-4" onClick={() => { setIsClicked(prev => !prev) }}>
-                    <p>{t.ADVANCED_OPTIONS.BACK}</p><span><CornerRightUpIcon size={16} /></span>
-                </button>
+            <button className="mt-4 mx-auto flex items-center justify-center gap-4" onClick={() => { setIsClicked(prev => !prev) }}>
+                <p>{t.ADVANCED_OPTIONS.BACK}</p><span><CornerRightUpIcon size={16} /></span>
+            </button>
         </>
     )
 }
