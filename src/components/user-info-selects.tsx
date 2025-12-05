@@ -29,7 +29,7 @@ export function UserInfoSelects({ setIsClicked }: UserInfoSelectsProps) {
 
         if (Number(value) > 100) return toast.error('La edad no puede ser mayor a 100');
 
-        if (value === '0' && value.length === 1) toast.error('La edad mínima es 1 año.');
+        if (value === '0' && value.length === 1) return toast.error('La edad mínima es 1 año.');
 
         setAge(value);
     };
