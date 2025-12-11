@@ -7,7 +7,7 @@ const DragAndDrop = () => {
     const [files, setFiles] = useState<File[] | undefined>();
     const [filePreview, setFilePreview] = useState<string | undefined>();
     const { t } = useTranslation();
-    
+
     const handleDrop = (files: File[]) => {
         console.log(files);
         setFiles(files);
@@ -26,7 +26,7 @@ const DragAndDrop = () => {
     return (
         <Dropzone
             className='border-orange-app bg-transparent border-2 border-dashed text-orange-app hover:bg-[#FF8C42]/10 hover:text-white '
-            accept={{ 'image/*': [] }}
+            accept={{ 'image/*': ['.png', '.jpg', '.jpeg'] }}
             maxFiles={3}
             maxSize={1024 * 1024 * 10}
             minSize={1024}
